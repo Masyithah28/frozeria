@@ -34,10 +34,17 @@
             >
             <select name="kategori" class="select" id="kategoriFilter" onchange="this.form.submit()">
                 <option value="semua" {{ request('kategori') == 'semua' || !request('kategori') ? 'selected' : '' }}>Semua kategori</option>
+                <option value="tanpa" {{ request('kategori') == 'tanpa' ? 'selected' : '' }}>Tanpa Kategori</option>
                 @foreach($kategoris as $kat)
                 <option value="{{ $kat->id }}" {{ request('kategori') == $kat->id ? 'selected' : '' }}>{{ $kat->nama_kategori }}</option>
                 @endforeach
             </select>
+            {{-- <select name="kategori" class="select" id="kategoriFilter" onchange="this.form.submit()">
+                <option value="semua" {{ request('kategori') == 'semua' || !request('kategori') ? 'selected' : '' }}>Semua kategori</option>
+                @foreach($kategoris as $kat)
+                <option value="{{ $kat->id }}" {{ request('kategori') == $kat->id ? 'selected' : '' }}>{{ $kat->nama_kategori }}</option>
+                @endforeach
+            </select> --}}
             <button type="submit" class="btn btn-primary btn-sm">Cari</button>
         </form>
     </div>
@@ -79,7 +86,7 @@
                 <td>
                     @if($barang->jumlah_stok == 0)
                         <span style="color:var(--danger);font-weight:600">0</span>
-                    @elseif($barang->jumlah_stok < 15)
+                    @elseif($barang->jumlah_stok < 20)
                         <span style="color:var(--warning);font-weight:600">{{ $barang->jumlah_stok }}</span>
                     @else
                         {{ $barang->jumlah_stok }}

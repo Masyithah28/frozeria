@@ -76,11 +76,11 @@
             </div>
             <div style="display:flex;gap:12px;align-items:center">
                 <span style="color:var(--warning);font-weight:700;min-width:80px">Kuning</span>
-                <span style="color:var(--muted)">Stok &lt; 15 (menipis). Perlu diperhatikan.</span>
+                <span style="color:var(--muted)">Stok &lt; 20 (menipis). Perlu diperhatikan.</span>
             </div>
             <div style="display:flex;gap:12px;align-items:center">
                 <span style="color:var(--text);font-weight:700;min-width:80px">Normal</span>
-                <span style="color:var(--muted)">Stok ≥ 15. Kondisi aman.</span>
+                <span style="color:var(--muted)">Stok ≥ 20. Kondisi aman.</span>
             </div>
         </div>
     </div>

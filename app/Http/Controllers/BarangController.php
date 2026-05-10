@@ -17,15 +17,23 @@ class BarangController extends Controller
             $query->where('nama_barang', 'like', '%' . $request->search . '%');
         }
 
+        // Filter kategori dengan opsi "semua" dan "tanpa"
         if ($request->filled('kategori') && $request->kategori !== 'semua') {
-            $query->where('kategori_id', $request->kategori);
+            if ($request->kategori === 'tanpa') {
+                $query->whereNull('kategori_id');
+            } else {
+                $query->where('kategori_id', $request->kategori);
+            }
         }
+        // if ($request->filled('kategori') && $request->kategori !== 'semua') {
+        //     $query->where('kategori_id', $request->kategori);
+        // }
 
         $barangs = $query->paginate(10)->withQueryString();
 
         $totalBarang    = Barang::count();
         $totalKategori  = Kategori::count();
-        $stokMenipis    = Barang::where('jumlah_stok', '>', 0)->where('jumlah_stok', '<', 15)->count();
+        $stokMenipis    = Barang::where('jumlah_stok', '>', 0)->where('jumlah_stok', '<', 20)->count();
         $stokHabis      = Barang::where('jumlah_stok', 0)->count();
         $kategoris      = Kategori::all();
 
