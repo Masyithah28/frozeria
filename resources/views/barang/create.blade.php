@@ -72,7 +72,7 @@
             {{-- STOK MINIMUM --}}
             <div class="form-group">
                 <label class="form-label">Stok Minimum <span class="req">*</span></label>
-                <input type="number" name="stok_minimum" class="form-input" value="{{ old('stok_minimum', 10) }}" min="0" required>
+                <input type="number" name="stok_minimum" class="form-input" value="20" readonly style="opacity:0.6;cursor:not-allowed;">
                 @error('stok_minimum')<div class="form-error">{{ $message }}</div>@enderror
             </div>
         </div>

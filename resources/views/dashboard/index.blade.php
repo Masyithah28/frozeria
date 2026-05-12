@@ -34,11 +34,22 @@
             >
             <select name="kategori" class="select" id="kategoriFilter" onchange="this.form.submit()">
                 <option value="semua" {{ request('kategori') == 'semua' || !request('kategori') ? 'selected' : '' }}>Semua kategori</option>
+
+                @if($adaTanpaKategori)
                 <option value="tanpa" {{ request('kategori') == 'tanpa' ? 'selected' : '' }}>Tanpa Kategori</option>
+                @endif
+
                 @foreach($kategoris as $kat)
                 <option value="{{ $kat->id }}" {{ request('kategori') == $kat->id ? 'selected' : '' }}>{{ $kat->nama_kategori }}</option>
                 @endforeach
             </select>
+            {{-- <select name="kategori" class="select" id="kategoriFilter" onchange="this.form.submit()">
+                <option value="semua" {{ request('kategori') == 'semua' || !request('kategori') ? 'selected' : '' }}>Semua kategori</option>
+                <option value="tanpa" {{ request('kategori') == 'tanpa' ? 'selected' : '' }}>Tanpa Kategori</option>
+                @foreach($kategoris as $kat)
+                <option value="{{ $kat->id }}" {{ request('kategori') == $kat->id ? 'selected' : '' }}>{{ $kat->nama_kategori }}</option>
+                @endforeach
+            </select> --}}
             {{-- <select name="kategori" class="select" id="kategoriFilter" onchange="this.form.submit()">
                 <option value="semua" {{ request('kategori') == 'semua' || !request('kategori') ? 'selected' : '' }}>Semua kategori</option>
                 @foreach($kategoris as $kat)
@@ -99,7 +110,7 @@
                         <a href="{{ route('barang.show', $barang->id) }}" class="btn btn-sm btn-detail">Detail</a>
                         <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-sm btn-edit">Edit</a>
                         <button
-                            class="btn btn-sm btn-del"
+                            class="btn btn-sm btn-del "
                             onclick="confirmDelete('{{ route('barang.destroy', $barang->id) }}', '{{ addslashes($barang->nama_barang) }}')"
                         >Hapus</button>
                     </div>

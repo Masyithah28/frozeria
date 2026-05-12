@@ -36,10 +36,11 @@ class BarangController extends Controller
         $stokMenipis    = Barang::where('jumlah_stok', '>', 0)->where('jumlah_stok', '<', 20)->count();
         $stokHabis      = Barang::where('jumlah_stok', 0)->count();
         $kategoris      = Kategori::all();
+        $adaTanpaKategori = Barang::whereNull('kategori_id')->exists();
 
         return view('dashboard.index', compact(
             'barangs', 'totalBarang', 'totalKategori',
-            'stokMenipis', 'stokHabis', 'kategoris'
+            'stokMenipis', 'stokHabis', 'kategoris', 'adaTanpaKategori'
         ));
     }
 
@@ -70,6 +71,8 @@ class BarangController extends Controller
             'deskripsi'     => 'nullable|string',
             'foto'          => 'nullable|image|mimes:jpg,jpeg,png|max:3072',
         ]);
+        
+        $validated['stok_minimum'] = 20; 
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
@@ -107,6 +110,8 @@ class BarangController extends Controller
             'deskripsi'     => 'nullable|string',
             'foto'          => 'nullable|image|mimes:jpg,jpeg,png|max:3072',
         ]);
+
+        $validated['stok_minimum'] = 20;
 
         if ($request->hasFile('foto')) {
             // Delete old photo

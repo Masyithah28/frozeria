@@ -205,6 +205,7 @@
             gap: 12px;
             align-items: center;
             margin-bottom: 16px;
+            
         }
         .input, .select {
             background: var(--surface2);
@@ -472,7 +473,7 @@
 </head>
 <body>
 <nav class="navbar">
-    <a href="{{ route('dashboard') }}" class="navbar-brand">Frozeria <span>Stok</span></a>
+    <a href="{{ route('dashboard') }}" class="navbar-brand"> Frozeria <span>Stok</span></a>
     <div class="nav-links">
         <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
         <a href="{{ route('kategori.index') }}" class="nav-link {{ request()->routeIs('kategori.*') ? 'active' : '' }}">Kategori</a>
