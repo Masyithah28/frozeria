@@ -119,8 +119,8 @@
         .btn-edit:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
         .btn-del { background: var(--surface2); color: var(--danger); border: 1px solid var(--border); }
         .btn-del:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
-        .btn-detail { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
-        .btn-detail:hover { background: var(--surface2); color: var(--accent); }
+        .btn-detail { background: var(--surface2); color: var(--black); border: 1px solid var(--border); }
+        .btn-detail:hover { background: var(--success); color: #fff; }
         /* MAIN CONTENT */
         .main { padding: 28px 32px; }
         /* .main { padding: 28px 32px; max-width: 1200px; margin: 0 auto; } */
